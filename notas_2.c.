@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main()
+{
+    float n1, n2, n3, media;
+    int frequencia;
+    char *categoria_str; // Usando ponteiro para string
+
+    printf("Digite as tres notas: ");
+    scanf("%f %f %f", &n1, &n2, &n3);
+
+    printf("Digite a frequencia: ");
+    scanf("%d", &frequencia);
+
+    media = (n1 + n2 + n3) / 3;
+
+    // Definir a categoria de acordo com a média e a frequência
+    if (media > 8.0 && frequencia >= 75)
+    {
+        categoria_str = "Aprovado com Distinção";
+    }
+    else if (media <= 8.0 && frequencia >= 75)
+    {
+        categoria_str = "Aprovado Direto";
+    }
+    else if ((media >= 4.0 && media < 6.0 && frequencia >= 75) ||
+             (media >= 6.0 && frequencia < 75) ||
+             (media >= 4.0 && frequencia > 50 && frequencia < 75))
+    {
+        categoria_str = "Vai para Final";
+    }
+    else
+    {
+        categoria_str = "Reprovado Direto";
+    }
+
+    // Exibir o resultado
+    printf("O estudante foi: %s pois teve media %.2f e frequencia %d \n", categoria_str, media, frequencia);
+
+    return 0;
+}
