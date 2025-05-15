@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int calculaDigitoVerificador(int num)
+{
+    int x1 = num / 100;
+    int x2 = (num / 10) % 10;
+    int x3 = num % 10;
+
+    int soma = (1 * x1) + (2 * x2) + (3 * x3);
+
+    int digitoVerificador = (soma % 11) % 10;
+    return digitoVerificador;
+}
+
+int main()
+{
+    int numero;
+
+    printf("Digite um numero de tres digitos: ");
+    scanf("%d", &numero);
+
+    int resultado = calculaDigitoVerificador(numero);
+    printf("Digito verificador: %d\n", resultado);
+
+    return 0;
+}
